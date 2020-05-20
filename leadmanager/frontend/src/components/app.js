@@ -15,15 +15,21 @@ import PrivateRoute from "./common/PrivateRoute";
 
 import { Provider } from 'react-redux';
 import store from '../store';
+import { loadUser } from '../actions/auth';
 
 //Alert Options
 const alertOptions = {
-timeout: 3000,
-position: 'top center'
+ timeout: 3000,
+ position: 'top center'
 }
 
 
 class App extends Component {
+
+componentDidMount() {
+    store.dispatch(loadUser());
+}
+
  render() {
   return (
   <Provider store = {store}>
@@ -32,7 +38,7 @@ class App extends Component {
   <Router>
   <Fragment>
     <Header />
-        <Alerts />
+ <Alerts />
         <div className = "container">
              <Switch>
              <PrivateRoute exact path = "/" component =
@@ -43,7 +49,6 @@ class App extends Component {
               {Login} />
              </Switch>
         </div>
-
   </Fragment>
     </Router>
   </AlertProvider>
@@ -53,5 +58,5 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app')
+ReactDOM.render(<App />, document.getElementById("app")
 );

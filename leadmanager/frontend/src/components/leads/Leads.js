@@ -21,20 +21,11 @@ render(){
 
      return(
       <Fragment>
-    <nav className="navbar navbar-expand-sm navbar-light bg-light">
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
-  <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a className="navbar-brand" href="#">Lead List</a>
-    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div className='container'>
+        <h1 >Lead List</h1>
 
-    </ul>
+            <h4> Leads </h4>
 
-
-  </div>
-</nav>
-<h2> Leads </h2>
     <table className ="table table-stripped">
     <thead>
         <tr>
@@ -54,14 +45,24 @@ render(){
             <td>{lead.email}</td>
             <td>{lead.message}</td>
             <td><button onClick={this.props.deleteLead.bind(this, lead.id)}
-            className=" btn btn-danger btn-sm">{" "}Delete</button></td>
-
+            className=" btn btn-danger btn-sm">{" "}Delete</button>
+            </td>
          </tr>
          ))}
     </tbody>
 
     </table>
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+     <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
 </Fragment>
+
      );
      }
 }

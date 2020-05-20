@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Route, Redirect } from "react-router-dom";
-import { Connect } from "react-redux";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 const PrivateRoute = ({component: Component, auth,
@@ -9,21 +9,20 @@ const PrivateRoute = ({component: Component, auth,
 <Route
     {...rest}
     render = {props => {
-    if(auth.isLoading) {
+    if  (auth.isLoading) {
         return <h2> Loading...</h2>
 
-    } else if(!auth.isAuthenticated) {
+    } else if (!auth.isAuthenticated) {
     return <Redirect to ="/login" />;
 
     } else {
         return <Component {...props} />;
     }
-
     }}
     />
 );
 
 const mapStateToProps = state => ({auth: state.auth
-
 });
-export default connect() (PrivateRoute);
+
+export default connect(mapStateToProps) (PrivateRoute);
